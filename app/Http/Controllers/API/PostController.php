@@ -28,7 +28,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        return Post::create($request->only(['uuid', 'description']));
+        return Post::create($request->only(['user_uuid', 'description']));
     }
 
     /**
@@ -53,7 +53,7 @@ class PostController extends Controller
     public function update(Request $request, $id)
     {
         $post = Post::findOrFail($id);
-        $post->update($request->only(['uuid', 'description']));
+        $post->update($request->only(['user_uuid', 'description']));
         return $post;
     }
 

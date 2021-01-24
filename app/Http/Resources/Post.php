@@ -15,8 +15,15 @@ class Post extends JsonResource
     public function toArray($request)
     {
         return [
+            'type' => 'posts',
             'id' => $this->id,
-            'description' => $this->description,
+            'attributes' => [
+                'description' => $this->description,
+            ],
+            'relationships' => '',
+            'links' => [
+                'self' => route('posts.show', ['post' => $this->id])
+            ]
         ];
     }
 }
